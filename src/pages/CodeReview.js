@@ -12,6 +12,7 @@ const CodeReview = () => {
 
     const API_URL = process.env.REACT_APP_API_URL || "https://codezen-backend-production.up.railway.app/api/code/review";
 
+    console.log("🚀 API URL from Vercel ENV:", process.env.REACT_APP_API_URL);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -33,7 +34,6 @@ const CodeReview = () => {
                     "Accept": "application/json"
                 },
                 body: JSON.stringify({ userCode: code }),
-                mode: "cors" // Ensure CORS is handled
             });
             
     
