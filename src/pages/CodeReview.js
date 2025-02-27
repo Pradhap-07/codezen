@@ -10,7 +10,8 @@ const CodeReview = () => {
     const [detectedLang, setDetectedLang] = useState("javascript"); // Default to JavaScript
     const [loading, setLoading] = useState(false);
 
-    const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080/api/code/review";
+    const API_URL = process.env.REACT_APP_API_URL || "https://codezen-backend-production.up.railway.app/api/code/review";
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -24,14 +25,17 @@ const CodeReview = () => {
         setLoading(true);
     
         try {
+
             const response = await fetch(API_URL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json"
                 },
-                body: JSON.stringify({ userCode: code })
+                body: JSON.stringify({ userCode: code }),
+                mode: "cors" // Ensure CORS is handled
             });
+            
     
             if (!response.ok) {
                 const errorResponse = await response.text();
