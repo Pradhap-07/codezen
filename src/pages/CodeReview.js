@@ -10,7 +10,7 @@ const CodeReview = () => {
     const [detectedLang, setDetectedLang] = useState("javascript"); // Default to JavaScript
     const [loading, setLoading] = useState(false);
 
-    const API_URL = process.env.REACT_APP_API_URL || "https://codezen-backend-production.up.railway.app/api/code/review";
+    const API_URL = process.env.REACT_APP_API_URL || "https://codezen-backend.onrender.com";
 
     console.log("🚀 API URL from Vercel ENV:", process.env.REACT_APP_API_URL);
 
