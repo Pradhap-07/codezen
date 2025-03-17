@@ -1,5 +1,6 @@
-import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo } from "react";
+import Particles from "@tsparticles/react";
+import { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesComponent = (props) => {
@@ -8,10 +9,6 @@ const ParticlesComponent = (props) => {
       await loadSlim(engine);
     });
   }, []);
-
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
 
   const options = useMemo(
     () => ({
@@ -41,7 +38,7 @@ const ParticlesComponent = (props) => {
     []
   );
 
-  return <Particles id={props.id} init={particlesLoaded} options={options} />;
+  return <Particles id={props.id} options={options} />;
 };
 
 export default ParticlesComponent;
