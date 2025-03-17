@@ -12,7 +12,9 @@ const CodeReview = () => {
 
     const API_URL = process.env.REACT_APP_API_URL || "https://codezen-backend.onrender.com/api/code/review";
 
-    console.log("🚀 API URL from Vercel ENV:", process.env.REACT_APP_API_URL);
+    console.log("🚀 API URL from Vercel:", process.env.REACT_APP_API_URL);
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -70,6 +72,9 @@ const CodeReview = () => {
         } finally {
             setLoading(false);
         }
+
+        console.log("🚀 API URL:", API_URL);
+        console.log("📜 Request Body:", JSON.stringify({ userCode: code }));
     };
     
 
